@@ -3,7 +3,7 @@ body, div, img {
     padding: 0;
 }
 
-.container {
+body {
     background-color: #FAFAFA;
     width: 100%;
     height: 100%;
@@ -11,6 +11,23 @@ body, div, img {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+}
+
+.container {
+    display: flex;
+}
+
+/* Portrait */
+@media (orientation: portrait) {
+    .container {
+        flex-direction: column;
+    }
+}
+/* Portrait */
+@media (orientation: landscape) {
+    .container {
+        flex-direction: row;
+    }
 }
 
 .stub {
@@ -24,15 +41,16 @@ body, div, img {
 
 .viewport {
     transform-origin: top left;
+    transition: transform 1.5s ease-in-out, box-shadow 0.1s ease-in-out;
     cursor: pointer;
     position: relative;
     -webkit-box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.75);
-    box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 15px 0px #5F4C4C;
 }
 
-.animate {
-    transition: 1.5s ease-in-out;
+.viewport:hover {
+    box-shadow: 3px 3px 20px 2px #5F4C4C;
 }
 
 
@@ -50,7 +68,37 @@ body, div, img {
     .mosaic {
         width: auto;
         height: 100%;
-        max-height: 720px;
+        max-height: 750px;
     }
 }
 
+.social {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (orientation: portrait) {
+    .social {
+        flex-direction: row;
+    }
+}
+
+@media (orientation: landscape) {
+    .social {
+        flex-direction: column;
+    }
+}
+
+.social i {
+    text-shadow: 1px 1px 5px #333;
+    color: #E0E0E0;
+    margin: 0 0.2em 0 0.2em;
+    transition: text-shadow 0.1s ease-in-out;
+}
+
+.social i:hover {
+    text-shadow: 0px 0px 15px #B01D24;
+    cursor: pointer;
+}
