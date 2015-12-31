@@ -1,4 +1,10 @@
+body, div, img {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
+    background-color: #FAFAFA;
     width: 100%;
     height: 100%;
     display: flex;
@@ -7,15 +13,26 @@
     overflow: hidden;
 }
 
+.stub {
+    display: none;
+}
+
 .mosaic {
-    transition: 1s ease-in-out;
-    transform: translateZ(0);
     transform-origin: top left;
+    will-change: transform;
 }
 
 .viewport {
-    overflow: hidden;
+    transform-origin: top left;
     cursor: pointer;
+    position: relative;
+    -webkit-box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.75);
+}
+
+.animate {
+    transition: 1.5s ease-in-out;
 }
 
 
@@ -23,7 +40,7 @@
 @media (orientation: portrait) {
     .mosaic {
         width: 100%;
-        max-width: 640px;
+        max-width: 720px;
         height: auto;
     }
 }
@@ -33,7 +50,7 @@
     .mosaic {
         width: auto;
         height: 100%;
-        max-height: 640px;
+        max-height: 720px;
     }
 }
 
