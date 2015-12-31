@@ -27,6 +27,7 @@ body {
 @media (orientation: landscape) {
     .container {
         flex-direction: row;
+        align-items: flex-start;
     }
 }
 
